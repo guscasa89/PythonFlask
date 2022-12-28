@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block app_content %}
+<h1>Resultados votacion APFA </h1>
+<br>
+<div style="text-align: center;">
+
+
+
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Opción</th>
+      <th scope="col">Cant Votos</th>
+      <th scope="col">Porcentaje</th>
+    </tr>
+  </thead>
+  <tbody>
+
+{% for r in resu %}
+    <tr class="table-info">
+      <td>{{r}}</td>
+        <td>{{resu[r][0]}}</td>
+        <td>{{resu[r][1]}} %</td>
+    </tr>
+{% endfor %}
+  </tbody>
+</table>
+
+
+
+<div style="text-align:center;">
+</div>
+<br>
+</div>
+<br>
+{% endblock %}

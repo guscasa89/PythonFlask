@@ -1,0 +1,35 @@
+{% extends 'bootstrap/base.html' %}
+{% block title %}
+        Apfa
+{% endblock %}
+
+<!--
+{% block styles %}
+{{super()}}
+<link rel="stylesheet" href="{{url_for('static', filename='bootstrap.min.css')}}">
+<link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+{% endblock %}
+-->
+{% block content %}
+        <div class="login">
+                <a href="{{ url_for('public.index_apfa') }}">Inicio</a>
+                {% if current_user %}
+                    {% if current_user.is_anonymous %}
+                    <a href="{{ url_for('auth.login') }}">Iniciar sesión</a>
+                    {% else %}
+                    <a href="{{ url_for('auth.logout') }}">Cerrar sesión</a> Usuario: {{ current_user.email }}
+                    {% endif %}
+                {% endif %}
+        </div>
+        <hr>
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+          <ul>
+              {% for message in messages %}
+              <li>{{ message }}</li>
+              {% endfor %}
+          </ul>
+          {% endif %}
+        {% endwith %}
+        {% block app_content %}{% endblock %}
+{% endblock %}

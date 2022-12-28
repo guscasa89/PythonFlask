@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block app_content %}
+    <div class="index">
+    <h1>Elecciones APFA</h1>
+        <div class="opciones">
+        <h3> <a href="{{ url_for('public.sufragar') }}">Comenzar a votar</a></h3>
+        <h3> <a href="{{ url_for('public.resultados') }}">Resultados online</a></h3>
+
+        {% if current_user %}
+            {% if current_user.is_admin%}
+            <a href="{{ url_for('public.administrar') }}">Ingresar Listas</a>
+            {% endif %}
+        {% endif %}
+        </div>
+    </div>
+{% endblock %}

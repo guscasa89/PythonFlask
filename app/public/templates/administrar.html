@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block app_content %}
+<h1>Ingreso de Listas</h1>
+<br>
+<div style="text-align: center;">
+<h1>Ingresar Lista</h1>
+  <form action="" method="post" novalidate>
+        {{ form.hidden_tag() }}
+
+        <div>
+            {{ form.nro_lista.label }}
+            {{ form.nro_lista }}<br>
+            {% for error in form.nro_lista.errors %}
+            <span style="color: red;">{{ error }}</span>
+            {% endfor %}
+        </div>
+        <div>
+            {{ form.presidente.label }}
+            {{ form.presidente }}<br>
+            {% for error in form.presidente.errors %}
+            <span style="color: red;">{{ error }}</span>
+            {% endfor %}
+        </div>
+        <div>
+            {{ form.vicepresidente.label }}
+            {{ form.vicepresidente }}<br>
+            {% for error in form.vicepresidente.errors %}
+            <span style="color: red;">{{ error }}</span>
+            {% endfor %}
+        </div>
+
+        <div>
+            {{ form.submit() }}
+        </div>
+    </form>
+    <div>
+        {% if msj == "ok" %}
+        <h2>Lista ingresada correctamente!</h2>
+        {% endif %}
+    </div>
+<div style="text-align:center;">
+</div>
+<br>
+</div>
+<br>
+{% endblock %}
